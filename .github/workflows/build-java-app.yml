@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       packages: write
+      checks: write
+      pull-requests: write
     defaults:
       run:
         # Set the working directory to the java-app directory
@@ -38,7 +40,7 @@ jobs:
       with:
         files: |
           java-app/target/surefire-reports/**/*.xml
-          java-app/target/surefire-reports/**/*.txt
+        # java-app/target/surefire-reports/**/*.txt
     - run: mkdir staging && cp target/*.jar staging
     # Upload the build artifact
     - uses: actions/upload-artifact@v4
