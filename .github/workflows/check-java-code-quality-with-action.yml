@@ -32,7 +32,7 @@ jobs:
         working-directory: java-app
     steps:
     - name: Check code quality
-      uses: ./.github/actions/code-quality-java@v4
+      uses: ./.github/actions/code-quality-java@v1
       with:
         skip-tests: ${{ github.event.inputs.skip-tests}}
         working-directory: 'java-app'
