@@ -1,0 +1,33 @@
+# This workflow will build a Java project with Maven
+##
+## More details on https://docs.github.com/en/actions/use-cases-and-examples/building-and-testing/building-and-testing-java-with-maven
+
+name: Check code quality using a custom action
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - java-app/**
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      checks: write
+      pull-requests: write
+    defaults:
+      run:
+        # Set the working directory to the java-app directory
+        # works only for the shell.
+        working-directory: java-app
+    steps:
+    - name: Check code quality
+      uses: .github/actions/code-quality-java@v4
+      with:
+        skip-tests: true
+        working-directory: 'java-app'
+
