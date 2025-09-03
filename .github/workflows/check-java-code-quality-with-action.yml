@@ -31,10 +31,10 @@ jobs:
         # works only for the shell.
         working-directory: java-app
     steps:
-      - uses: actions/checkout@v4
-      - name: Check code quality
-        uses: ./.github/actions/code-quality-java
-        with:
-          skip-tests: ${{ github.event.inputs.skip-tests}}
-          working-directory: 'java-app'
+    - uses: actions/checkout@v4
+    - name: Check code quality
+      uses: ./.github/actions/code-quality-java
+      with:
+        skip-tests: ${{ github.event.inputs.skip-tests}}
+        working-directory: 'java-app'
 
