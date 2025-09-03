@@ -37,8 +37,8 @@ jobs:
       if: (!cancelled())
       with:
         files: |
-          target/surefire-reports/**/*.xml
-          target/surefire-reports/**/*.txt
+          java-app/target/surefire-reports/**/*.xml
+          java-app/target/surefire-reports/**/*.txt
     - run: mkdir staging && cp target/*.jar staging
     # Upload the build artifact
     - uses: actions/upload-artifact@v4
