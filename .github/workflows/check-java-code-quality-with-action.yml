@@ -11,6 +11,12 @@ on:
       - java-app/**
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      skip-tests:
+        description: 'Skip running tests'
+        required: false
+        default: 'true'
 
 jobs:
   build:
@@ -28,6 +34,6 @@ jobs:
     - name: Check code quality
       uses: .github/actions/code-quality-java@v4
       with:
-        skip-tests: true
+        skip-tests: ${{ github.event.inputs.skip-tests}}
         working-directory: 'java-app'
 
