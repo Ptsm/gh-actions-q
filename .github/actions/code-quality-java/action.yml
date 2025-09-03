@@ -3,6 +3,7 @@ description: "A composite action to run Checkstyle analysis and unit tests for a
 inputs:
   skip-tests:
     description: "skip tests"
+
     required: false
     default: false
   working-directory:
