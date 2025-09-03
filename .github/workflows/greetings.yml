@@ -18,4 +18,4 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         issue-message: "Hello ${{ github.GITHUB_ACTOR_ID }}"
-        pr-message: "Message that will be displayed on users' first pull request"
+        pr-message: "Hello ${{ github.GITHUB_ACTOR_ID }}"
